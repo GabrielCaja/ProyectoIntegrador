@@ -1,10 +1,18 @@
-
+import javax.swing.JOptionPane;
 
 public class ModeloLogin {
-    public void autenticar(String nickname, String password) throws AutenticacionException {
-        //Logica de autenticacion
-        if (!nickname.equals("usuario") || !password.equals("pass")) {
-            throw new AutenticacionException("Credenciales incorrectas");     
+    public static void iniciarSesion(String nickname, String contrasena) {
+        boolean usuarioEncontrado = false;
+        for (ModeloRegistro registro : ModeloRegistro.getListaClientes()) {
+            if (registro.getNickname().equals(nickname) && registro.getContrasena().equals(contrasena)) {
+                JOptionPane.showMessageDialog(null, "Bienvenido de nuevo: " + registro.getNombre());
+                usuarioEncontrado = true;
+                break;
+            }
+        }
+        // En caso de no encontrar al usuario
+        if (!usuarioEncontrado) {
+            JOptionPane.showMessageDialog(null, "Credenciales incorrectas. Por favor, inténtalo de nuevo.");
         }
     }
 }

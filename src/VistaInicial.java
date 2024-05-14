@@ -43,12 +43,7 @@ public class VistaInicial {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				
 			}
 		});
 	}
@@ -69,7 +64,6 @@ public class VistaInicial {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 450);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Estadisticas");
